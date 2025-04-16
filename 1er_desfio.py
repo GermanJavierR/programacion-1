@@ -14,12 +14,11 @@ else:
 # 2)
 import random
 
-nombre_del_usuario = input("Ingrese su nombre: ")
 nota_el_usuario = random.randrange(1, 10)
 
 if nota_el_usuario <= 3:
-    print(f"El usuario {nombre_del_usuario} está Desaprobado")
+    print(f"Desaprobado, la nota es {nota_el_usuario}")
 elif nota_el_usuario <= 5:
-    print(f"El usuario {nombre_del_usuario} está Aprobado")
+    print(f"Aprobado, la nota es {nota_el_usuario}")
 else:
-    print(f"El usuario {nombre_del_usuario} tiene Promoción directa")
+    print(f"Promoción directa, la nota es {nota_el_usuario}")
