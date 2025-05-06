@@ -270,12 +270,12 @@ def es_float(valor):
     return sin_el_punto.isdigit() and cantidad_de_puntos == 1
 
 
-print(es_float("3.14"))
-print(es_float(3.14))
-print(es_float("texto"))
-print(es_float("12"))
-print(es_float(12))
-print(es_float(None))
+# print(es_float("3.14"))
+# print(es_float(3.14))
+# print(es_float("texto"))
+# print(es_float("12"))
+# print(es_float(12))
+# print(es_float(None))
 
 """
 🔹 Enunciado 2: Validar número entero (int)
@@ -288,12 +288,25 @@ Probá tu función con valores como "5", 5, "5.0", 5.0, "cinco" y None.
 
 def es_entero(valor):
     """
-        Propósito:
+        Propósito: indicar si el valor ingresado es un entero.
         Parametro:
-        Return:
+            valor (str o número) : valor a evaluar si es un entero
+        Return: retornara True si el valor ingresado es un entero o False en el caso contrario.
     """
-    pass
+    var = ""
+    
+    for i in str(valor):
+        var += i
+    
+    return var.isdigit()
 
+
+print(es_entero("5"))
+print(es_entero(5))
+print(es_entero("5.0"))
+print(es_entero(5.0))
+print(es_entero("cinco"))
+print(es_entero(None))
 
 
 """
