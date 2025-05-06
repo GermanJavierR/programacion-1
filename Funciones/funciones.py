@@ -218,7 +218,10 @@ def potencia_del_numero(base, exponente):
 
 def es_primo(numero):
     """
-    
+        Propósito: Indicar si el número es primo.
+        Parametro:
+            numero (int) : número al cual se evaluar si es primo o no.
+        Return: retorna True si el número ingresado es primo, en caso contrario retorna False.
     """
     cantidad_de_divisores = 0
     for i in range(1, numero + 1):
