@@ -174,7 +174,7 @@ def numero_mas_grande_entre_tres(a, b, c):
             a (int o float) : número que se va a comparar con los demás 
             b (int o float) : número que se va a comparar con los demás 
             c (int o float) : número que se va a comparar con los demás 
-        Return:
+        Return: retorna el número más grande.
     """
     if es_enetro_o_flotante(a) and es_enetro_o_flotante(b) and es_enetro_o_flotante(c):
         return numero_mas_grande(numero_mas_grande(a, b), c)
@@ -184,9 +184,11 @@ def numero_mas_grande_entre_tres(a, b, c):
 
 def numero_mas_grande(a, b):
     """
-        Proposito:
+        Proposito: retorna el número más grande entre los dos dados.
         Parametros:
-        Return:
+            a (int o float) : número que se va a comparar con b
+            b (int o float) : número que se va a comparar con a
+        Return: retorna el número más grande.
     """
     if a > b:
         return a
