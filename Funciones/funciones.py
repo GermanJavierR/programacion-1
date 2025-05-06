@@ -111,7 +111,7 @@ def es_enetro_o_flotante(numero):
     return isinstance(numero, int) or isinstance(numero, float)
 
 
-print(area_del_rectangulo(3,5))
+# print(area_del_rectangulo(3,5))
 
 
 # 5) Escribe una función que calcule el área de un círculo. La función debe recibir el radio como parámetro y devolver el área.
@@ -201,15 +201,15 @@ def numero_mas_grande(a, b):
 
 def potencia_del_numero(base, exponente):
     """
-        Proposito:
+        Proposito: calcular la base elvado al exponente dado.
         Parametros:
-        Return:
+            base (int o float) : base a la que se multiplicará por si misma.
+            exponente (int or float) : cantidad de veces por la que se multiplicará la base.
+        Return: retorna el resultado de la base multiplicada por si misma tanta veces por el exponente dado.
     """
-    potencia = exponente
     resultado = 1
-    while potencia != 0:
+    for i in range(exponente):
         resultado *= base
-        potencia -= 1
     return resultado 
 
 # print(potencia_del_numero(3,3))
