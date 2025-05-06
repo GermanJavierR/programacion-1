@@ -169,8 +169,11 @@ def es_par_o_impar2(número):
 
 def numero_mas_grande_entre_tres(a, b, c):
     """
-        Proposito:
+        Proposito: retornar el número más grande entre los tres dados.
         Parametros:
+            a (int o float) : número que se va a comparar con los demás 
+            b (int o float) : número que se va a comparar con los demás 
+            c (int o float) : número que se va a comparar con los demás 
         Return:
     """
     if es_enetro_o_flotante(a) and es_enetro_o_flotante(b) and es_enetro_o_flotante(c):
