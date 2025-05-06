@@ -255,12 +255,27 @@ def es_float(valor):
     """
         Propósito: valida si la variable ingresada es un flotante.
         Parametro:
-            valor (float) : valor a validar.
+            valor (string o número) : valor a validar.
         Return: retorna True si la variable ingresada es un flotante.
     """
-    var = input("Ingrese un flotante: ")
+    sin_el_punto = ""
+    cantidad_de_puntos = 0
     
+    for i in str(valor):
+        if i == ".":
+            cantidad_de_puntos += 1
+        else:
+            sin_el_punto += i
 
+    return sin_el_punto.isdigit() and cantidad_de_puntos == 1
+
+
+print(es_float("3.14"))
+print(es_float(3.14))
+print(es_float("texto"))
+print(es_float("12"))
+print(es_float(12))
+print(es_float(None))
 
 """
 🔹 Enunciado 2: Validar número entero (int)
@@ -271,7 +286,13 @@ Escribí una función llamada es_entero(valor) que reciba un solo parámetro. La
 Probá tu función con valores como "5", 5, "5.0", 5.0, "cinco" y None.
 """
 
-
+def es_entero(valor):
+    """
+        Propósito:
+        Parametro:
+        Return:
+    """
+    pass
 
 
 
@@ -284,3 +305,24 @@ Escribí una función llamada es_alfanumerico(valor) que reciba un parámetro y 
 Probá la función con valores como "Hola123", "hola mundo", "123", "!!!", "" y None.
 """
     
+# numero = 4.5
+# print(numero.is_integer()) 
+
+# numero2 = "12.5"
+# print(numero2.isdigit())
+
+# for i in numero:
+#     if i == ".":
+        # print("Es float")
+    
+# hola = str("hola")
+# print(hola)
+
+# nuevo_texto = ""
+
+# for i in "hola":
+#     if i == "h":
+#         continue
+#     nuevo_texto += i
+
+# print(nuevo_texto)
