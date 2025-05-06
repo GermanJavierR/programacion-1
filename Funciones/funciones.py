@@ -240,13 +240,47 @@ def es_primo(numero):
 
 
 
-def validar_si_es_flotante(variable):
+# Ejercicio de validación.
+
+"""
+🔹 Enunciado 1: Validar número decimal (float)
+Objetivo: Crear una función que valide si un valor recibido como parámetro (string o número) puede interpretarse como un número decimal.
+
+Enunciado:
+Escribí una función llamada es_float(valor) que reciba un solo parámetro. La función debe retornar True si el valor puede convertirse a float, ya sea que venga como string (por ejemplo, "3.14") o como número (3.14), y False en caso contrario.
+Probá tu función con distintos valores como "3.14", 3.14, "texto", "12", 12, y None.
+"""
+
+def es_float(valor):
     """
         Propósito: valida si la variable ingresada es un flotante.
         Parametro:
-            variable (float) : variable a validar.
+            valor (float) : valor a validar.
         Return: retorna True si la variable ingresada es un flotante.
     """
     var = input("Ingrese un flotante: ")
     
+
+
+"""
+🔹 Enunciado 2: Validar número entero (int)
+Objetivo: Crear una función que valide si un valor puede interpretarse como un número entero.
+
+Enunciado:
+Escribí una función llamada es_entero(valor) que reciba un solo parámetro. La función debe retornar True si el valor puede convertirse a int, ya sea que venga como string ("5") o como número (5), y False en caso contrario.
+Probá tu función con valores como "5", 5, "5.0", 5.0, "cinco" y None.
+"""
+
+
+
+
+
+"""
+🔹 Enunciado 3: Validar si un valor es alfanumérico
+Objetivo: Crear una función que verifique si un string es estrictamente alfanumérico.
+
+Enunciado:
+Escribí una función llamada es_alfanumerico(valor) que reciba un parámetro y devuelva True si es un string compuesto únicamente por letras y/o números (sin espacios, símbolos o acentos), y False en caso contrario.
+Probá la función con valores como "Hola123", "hola mundo", "123", "!!!", "" y None.
+"""
     
