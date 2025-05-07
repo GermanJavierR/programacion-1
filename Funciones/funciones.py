@@ -258,16 +258,19 @@ def es_float(valor):
             valor (string o número) : valor a validar.
         Return: retorna True si la variable ingresada es un flotante.
     """
-    sin_el_punto = ""
-    cantidad_de_puntos = 0
+    if valor == None:
+        return False
+    else:
+        sin_el_punto = ""
+        cantidad_de_puntos = 0
     
-    for i in str(valor):
-        if i == ".":
-            cantidad_de_puntos += 1
-        else:
-            sin_el_punto += i
+        for i in str(valor):
+            if i == ".":
+                cantidad_de_puntos += 1
+            else:
+                sin_el_punto += i
 
-    return sin_el_punto.isdigit() and cantidad_de_puntos == 1
+        return sin_el_punto.isdigit() and cantidad_de_puntos == 1
 
 
 # print(es_float("3.14"))
@@ -288,25 +291,29 @@ Probá tu función con valores como "5", 5, "5.0", 5.0, "cinco" y None.
 
 def es_entero(valor):
     """
-        Propósito: indicar si el valor ingresado es un entero.
+        Propósito: validar si el valor ingresado es un entero.
         Parametro:
             valor (str o número) : valor a evaluar si es un entero
         Return: retornara True si el valor ingresado es un entero o False en el caso contrario.
     """
-    var = ""
+
+    if valor == None:
+        return False
+    else:
+        var = ""
     
-    for i in str(valor):
-        var += i
+        for i in str(valor):
+            var += i
     
-    return var.isdigit()
+        return var.isdigit()
 
 
-print(es_entero("5"))
-print(es_entero(5))
-print(es_entero("5.0"))
-print(es_entero(5.0))
-print(es_entero("cinco"))
-print(es_entero(None))
+# print(es_entero("5"))
+# print(es_entero(5))
+# print(es_entero("5.0"))
+# print(es_entero(5.0))
+# print(es_entero("cinco"))
+# print(es_entero(None))
 
 
 """
@@ -317,6 +324,39 @@ Enunciado:
 Escribí una función llamada es_alfanumerico(valor) que reciba un parámetro y devuelva True si es un string compuesto únicamente por letras y/o números (sin espacios, símbolos o acentos), y False en caso contrario.
 Probá la función con valores como "Hola123", "hola mundo", "123", "!!!", "" y None.
 """
+
+def es_alfanumerico(valor):
+    """
+        Propósito: Validar si el valor ingresado es alfanumerico.
+        Parametro:
+            valor (str) : valor a evaluar si es alfanumerico.
+        Return: retorna True en  caso de que la cadena ingresada sea estrictamente alfanumerico, en caso contrario retorna False.
+    """
+    if valor == None:
+        return False
+    else: 
+        var = str(valor).lower()
+        return not contiene_acentos(valor) and var.isalnum()
+    
+
+def contiene_acentos(valor):
+    """
+        Propósito: Indicar si el valor ingresado tiene alguna letra con acento.
+        Parametro:
+            valor (str) : valor a validar si tiene algún acento.
+        Return: retorna True si la cadena ingresada contiene alguna letra con acento, en caso contrario retorna False.
+    """
+
+    var = str(valor).lower()
+    return ("á" in var) or ("é" in var) or ("í" in var) or ("ó" in var) or ("ú" in var)
+
+
+print(es_alfanumerico("Hola123"))
+print(es_alfanumerico("hola mundo"))
+print(es_alfanumerico("123"))
+print(es_alfanumerico("!!!"))
+print(es_alfanumerico(""))
+print(es_alfanumerico(None))
     
 # numero = 4.5
 # print(numero.is_integer()) 
@@ -339,3 +379,9 @@ Probá la función con valores como "Hola123", "hola mundo", "123", "!!!", "" y 
 #     nuevo_texto += i
 
 # print(nuevo_texto)
+
+# print("hola 3".isalnum())
+
+# print(" " in "hol a")
+
+# print(contiene_acentos(None))
