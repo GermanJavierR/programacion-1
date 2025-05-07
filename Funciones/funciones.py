@@ -267,6 +267,34 @@ Escribí una función llamada es_float(valor) que reciba un solo parámetro. La 
 Probá tu función con distintos valores como "3.14", 3.14, "texto", "12", 12, y None.
 """
 
+# def es_float(valor):
+#     """
+#         Propósito: valida si la variable ingresada es un flotante.
+#         Parametro:
+#             valor (string o número) : valor a validar.
+#         Return: retorna True si la variable ingresada es un flotante.
+#     """
+#     if valor == None:
+#         return False
+#     elif valor == True or valor == False:
+#         return False
+#     elif type(valor) == int:
+#         return False
+#     elif type(valor) == float:
+#         return True
+#     else:
+#         sin_el_punto = ""
+#         cantidad_de_puntos = 0
+    
+#         for i in str(valor):
+#             if i == ".":
+#                 cantidad_de_puntos += 1
+#             else:
+#                 sin_el_punto += i
+
+#         return sin_el_punto.isdigit() and cantidad_de_puntos == 1
+
+
 def es_float(valor):
     """
         Propósito: valida si la variable ingresada es un flotante.
@@ -274,15 +302,9 @@ def es_float(valor):
             valor (string o número) : valor a validar.
         Return: retorna True si la variable ingresada es un flotante.
     """
-    if valor == None:
-        return False
-    elif valor == True or valor == False:
-        return False
-    elif type(valor) == int:
-        return False
-    elif type(valor) == float:
+    if type(valor) == float:
         return True
-    else:
+    elif type(valor) == str:
         sin_el_punto = ""
         cantidad_de_puntos = 0
     
@@ -293,14 +315,16 @@ def es_float(valor):
                 sin_el_punto += i
 
         return sin_el_punto.isdigit() and cantidad_de_puntos == 1
+    else:
+        return False
 
 
-# print(es_float("3.14"))
-# print(es_float(3.14))
-# print(es_float("texto"))
-# print(es_float("12"))
-# print(es_float(12))
-# print(es_float(None))
+print(es_float("3.14"))
+print(es_float(3.14))
+print(es_float("texto"))
+print(es_float("12"))
+print(es_float(12))
+print(es_float(None))
 
 """
 🔹 Enunciado 2: Validar número entero (int)
@@ -438,5 +462,3 @@ def es_par_o_impar3(número):
 # print(es_par_o_impar3(True))
 # print(es_par_o_impar3(None))
 
-
-"hola".replace()
