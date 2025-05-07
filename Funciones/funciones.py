@@ -335,6 +335,31 @@ Escribí una función llamada es_entero(valor) que reciba un solo parámetro. La
 Probá tu función con valores como "5", 5, "5.0", 5.0, "cinco" y None.
 """
 
+# def es_entero(valor):
+#     """
+#         Propósito: validar si el valor ingresado es un entero.
+#         Parametro:
+#             valor (str o número) : valor a evaluar si es un entero
+#         Return: retornara True si el valor ingresado es un entero o False en el caso contrario.
+#     """
+
+#     if valor == None:
+#         return False
+#     elif valor == True or valor == False:
+#         return False
+#     elif type(valor) == int:
+#         return True
+#     elif type(valor) == float:
+#         return False
+#     else:
+#         var = ""
+    
+#         for i in valor:
+#             var += i
+    
+#         return var.isdigit()
+
+
 def es_entero(valor):
     """
         Propósito: validar si el valor ingresado es un entero.
@@ -343,21 +368,17 @@ def es_entero(valor):
         Return: retornara True si el valor ingresado es un entero o False en el caso contrario.
     """
 
-    if valor == None:
-        return False
-    elif valor == True or valor == False:
-        return False
-    elif type(valor) == int:
+    if type(valor) == int:
         return True
-    elif type(valor) == float:
-        return False
-    else:
+    elif type(valor) == str:
         var = ""
     
         for i in valor:
             var += i
     
         return var.isdigit()
+    else:
+        return False
 
 
 # print(es_entero("5"))
