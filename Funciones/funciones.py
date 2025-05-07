@@ -213,10 +213,13 @@ def potencia_del_numero(base, exponente):
             exponente (int or float) : cantidad de veces por la que se multiplicará la base.
         Return: retorna el resultado de la base multiplicada por si misma tanta veces por el exponente dado.
     """
-    resultado = 1
-    for i in range(exponente):
-        resultado *= base
-    return resultado 
+    if es_enetro_o_flotante(base) and es_enetro_o_flotante(exponente):
+        resultado = 1
+        for i in range(exponente):
+            resultado *= base
+        return resultado 
+    else:
+        return "Alguno de los datos ingresados no es valido."
 
 # print(potencia_del_numero(3,3))
 
@@ -229,12 +232,16 @@ def es_primo(numero):
             numero (int) : número al cual se evaluar si es primo o no.
         Return: retorna True si el número ingresado es primo, en caso contrario retorna False.
     """
-    cantidad_de_divisores = 0
-    for i in range(1, numero + 1):
-        if numero % i == 0:
-            cantidad_de_divisores += 1
 
-    return cantidad_de_divisores == 2
+    if isinstance(numero, int): 
+        cantidad_de_divisores = 0
+        for i in range(1, numero + 1):
+            if numero % i == 0:
+                cantidad_de_divisores += 1
+
+        return cantidad_de_divisores == 2
+    else:
+        return "No ha ingresado un valor valido."
 
 # print(es_primo(11))
 
@@ -266,6 +273,12 @@ def es_float(valor):
     """
     if valor == None:
         return False
+    elif valor == True or valor == False:
+        return False
+    elif type(valor) == int:
+        return False
+    elif type(valor) == float:
+        return True
     else:
         sin_el_punto = ""
         cantidad_de_puntos = 0
@@ -358,7 +371,7 @@ def contiene_acentos(valor):
             valor (str) : valor a validar si tiene algún acento.
         Return: retorna True si la cadena ingresada contiene alguna letra con acento, en caso contrario retorna False.
     """
-    if valor == None or isinstance(valor, int) or isinstance(valor, float):
+    if valor == None or isinstance(valor, int) or isinstance(valor, float) or isinstance(valor, bool):
         return False
     else:
         var = str(valor).lower()
@@ -421,3 +434,6 @@ def es_par_o_impar3(número):
 # print(es_par_o_impar3("2"))
 # print(es_par_o_impar3(True))
 # print(es_par_o_impar3(None))
+
+
+"hola".replace()
