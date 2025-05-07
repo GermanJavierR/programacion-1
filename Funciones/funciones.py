@@ -134,35 +134,41 @@ def area_del_circulo(radio):
 
 # 6) Crea una función que verifique si un número dado es par o impar. La función debe imprimir un mensaje indicando si el número es par o impar.
 
-def es_par_o_impar(número):
+def es_par_o_impar(numero):
     """
         Proposito: Indica si el número ingresado ese par o impar.
         Parametro:
-            número (int): número a evaluar si es par o impar.
+            numero (int): número a evaluar si es par o impar.
         Return: retorna un string diciendo si el número ingresado es par o impar.
     """
-    if isinstance(número, int):
-        if número % 2 == 0:
-            return f"El número {número} es par."
+    if isinstance(numero, int):
+        if numero % 2 == 0:
+            return f"El número {numero} es par."
         else:
-            return f"El número {número} es impar."
+            return f"El número {numero} es impar."
     else:
         return "No ha ingresado un número entero."
     
 
 # 7) Crea una función que verifique si un número dado es par o impar. La función retorna True si el número es par, False en caso contrario.
 
-def es_par_o_impar2(número):
+def es_par_o_impar2(numero):
     """
         Proposito: Indica si el número ingresado ese par o impar.
         Parametro:
             número (int): número a evaluar si es par o impar.
         Return: retorna True si le número ingresado es par y False en el caso contrario.
     """
-    if isinstance(número, int):
-        return número % 2 == 0
+    if isinstance(numero, int):
+        return numero % 2 == 0
     else:
         return "No ha ingresado un número entero."
+
+
+# print(es_par_o_impar2(2))
+# print(es_par_o_impar2(2.5))
+# print(es_par_o_impar2("hola"))
+# print(es_par_o_impar2(None))
 
 
 # 8) Define una función que encuentre el máximo de tres números. La función debe aceptar tres argumentos y devolver el número más grande.
@@ -299,10 +305,16 @@ def es_entero(valor):
 
     if valor == None:
         return False
+    elif valor == True or valor == False:
+        return False
+    elif type(valor) == int:
+        return True
+    elif type(valor) == float:
+        return False
     else:
         var = ""
     
-        for i in str(valor):
+        for i in valor:
             var += i
     
         return var.isdigit()
@@ -387,3 +399,25 @@ def contiene_acentos(valor):
 # print(" " in "hol a")
 
 # print(contiene_acentos(None))
+
+
+
+def es_par_o_impar3(número):
+    """
+        Proposito: Indica si el número ingresado ese par o impar.
+        Parametro:
+            número (int): número a evaluar si es par o impar.
+        Return: retorna True si le número ingresado es par y False en el caso contrario.
+    """
+    if es_entero(número):
+        return int(número) % 2 == 0
+    else:
+        return "No ha ingresado un número entero."
+
+
+# print(es_par_o_impar3(2))
+# print(es_par_o_impar3(2.5))
+# print(es_par_o_impar3("hola"))
+# print(es_par_o_impar3("2"))
+# print(es_par_o_impar3(True))
+# print(es_par_o_impar3(None))
