@@ -346,17 +346,19 @@ def contiene_acentos(valor):
             valor (str) : valor a validar si tiene algún acento.
         Return: retorna True si la cadena ingresada contiene alguna letra con acento, en caso contrario retorna False.
     """
+    if valor == None or isinstance(valor, int) or isinstance(valor, float):
+        return False
+    else:
+        var = str(valor).lower()
+        return ("á" in var) or ("é" in var) or ("í" in var) or ("ó" in var) or ("ú" in var)
 
-    var = str(valor).lower()
-    return ("á" in var) or ("é" in var) or ("í" in var) or ("ó" in var) or ("ú" in var)
 
-
-print(es_alfanumerico("Hola123"))
-print(es_alfanumerico("hola mundo"))
-print(es_alfanumerico("123"))
-print(es_alfanumerico("!!!"))
-print(es_alfanumerico(""))
-print(es_alfanumerico(None))
+# print(es_alfanumerico("Hola123"))
+# print(es_alfanumerico("hola mundo"))
+# print(es_alfanumerico("123"))
+# print(es_alfanumerico("!!!"))
+# print(es_alfanumerico(""))
+# print(es_alfanumerico(None))
     
 # numero = 4.5
 # print(numero.is_integer()) 
