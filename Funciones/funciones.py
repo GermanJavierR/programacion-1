@@ -223,6 +223,9 @@ def potencia_del_numero(base, exponente):
 
 # print(potencia_del_numero(3,3))
 
+# se puede hacer la potencia como numero ** exponente.
+
+
 # 10) Crear una función que reciba un número y retorne True si el número es primo, False en caso contrario.
 
 def es_primo(numero):
