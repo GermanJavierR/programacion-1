@@ -22,19 +22,19 @@ def devolver_numero_entero(numero_ingresado):
 
 # 2) Crear una función que le solicite al usuario el ingreso de un número flotante y lo retorne.
 
-# def devolver_numero_flotante(numero_ingresado):
-#     """
-#         Proposito: devuelve el numero flotante ingresado.
+def devolver_numero_flotante(numero_ingresado):
+    """
+        Proposito: devuelve el numero flotante ingresado.
 
-#         Parametro:
-#             numero_ingresado (floar): parametro que se devolverá.
-#         Return:
-#             float: retorna el número ingresado.
-#     """
-#     if isinstance(numero_ingresado, float): #Evalua si el número ingresado es un entero.
-#         return numero_ingresado
-#     else:
-#         return "Lo que ha ingresado no es un flotante."
+        Parametro:
+            numero_ingresado (floar): parametro que se devolverá.
+        Return:
+            float: retorna el número ingresado.
+    """
+    if isinstance(numero_ingresado, float): #Evalua si el número ingresado es un entero.
+        return numero_ingresado
+    else:
+        return "Lo que ha ingresado no es un flotante."
     
 
 def devolver_numero_flotante2(numero_ingresado):
@@ -250,216 +250,77 @@ def es_primo(numero):
 
 # 11) Crear una función que (utilizando el algoritmo del ejercicio de la guia de for), muestre todos los números primos comprendidos entre entre la unidad y un número ingresado como parámetro. La función retorna la cantidad de números primos encontrados. Modularizar todo lo posible.
 
+from primos import cantidad_de_primos_hasta, imprimir_primos_hasta
+from validaciones import es_entero
+
+def mostrar_todos_los_primos_hasta():
+    """
+    Propósito:
+    
+    """
+    numero_ingresado = input("Por favor, ingrese un número entero: ")
+    if es_entero(numero_ingresado):
+        numero_ingresado = int(numero_ingresado)
+        cantidad_de_primos_encontrados = cantidad_de_primos_hasta(numero_ingresado)
+        imprimir_primos_hasta(numero_ingresado)
+
+        return f"La cantidad de primos es: {cantidad_de_primos_encontrados}"
+    else:
+        return "El valor ingresado no es un número entero."
+
+print(mostrar_todos_los_primos_hasta())
+
+
 # 12) Crear una función que imprima la tabla de multiplicar de un número recibido como parámetro. La función debe aceptar parámetros opcionales (inicio y fin) para definir el rango de multiplicación. Por defecto es del 1 al 10.
+
+def tabla_de_mutiplicar_de(numero, inicio = 1, final = 10):
+    """
+    Propósito: imprimir la tabla de multiplicar del número dado.
+    Parametros:
+        numero (int): número en el que basará la tabla.
+        inicio (int): número desde el que se iniciará la tabla del número dado.
+        final (int): número en el que se terminará la tabla del número dado.
+    """
+    if es_entero(numero) and es_entero(inicio) and es_entero(final):
+        numero_de_la_tabla = int(numero)
+        numero_inicial = int(inicio)
+        numero_final = int(final)
+        for numero_actual in range(numero_inicial, numero_final + 1):
+            resultado = numero_de_la_tabla * numero_actual
+            print(f"{numero_de_la_tabla} x {numero_actual} = {resultado}")
+    else:
+        print("El valor ingresado no es un número entero.")
+
+# tabla_de_mutiplicar_de(2)
+# tabla_de_mutiplicar_de(2, 4, 8)
+# tabla_de_mutiplicar_de(2, 4)
+
+# Preguntar por los números 
 
 # 13) Especializar las funciones del punto 1, 2 y 3 para hacerlas reutilizables. Agregar validaciones.
 
 
-
-# Ejercicio de validación.
-
-"""
-🔹 Enunciado 1: Validar número decimal (float)
-Objetivo: Crear una función que valide si un valor recibido como parámetro (string o número) puede interpretarse como un número decimal.
-
-Enunciado:
-Escribí una función llamada es_float(valor) que reciba un solo parámetro. La función debe retornar True si el valor puede convertirse a float, ya sea que venga como string (por ejemplo, "3.14") o como número (3.14), y False en caso contrario.
-Probá tu función con distintos valores como "3.14", 3.14, "texto", "12", 12, y None.
-"""
-
-# def es_float(valor):
-#     """
-#         Propósito: valida si la variable ingresada es un flotante.
-#         Parametro:
-#             valor (string o número) : valor a validar.
-#         Return: retorna True si la variable ingresada es un flotante.
-#     """
-#     if valor == None:
-#         return False
-#     elif valor == True or valor == False:
-#         return False
-#     elif type(valor) == int:
-#         return False
-#     elif type(valor) == float:
-#         return True
-#     else:
-#         sin_el_punto = ""
-#         cantidad_de_puntos = 0
-    
-#         for i in str(valor):
-#             if i == ".":
-#                 cantidad_de_puntos += 1
-#             else:
-#                 sin_el_punto += i
-
-#         return sin_el_punto.isdigit() and cantidad_de_puntos == 1
-
-
-def es_float(valor):
+def devolver_tipo_de_dato(valor, tipo_de_dato):
     """
-        Propósito: valida si la variable ingresada es un flotante.
-        Parametro:
-            valor (string o número) : valor a validar.
-        Return: retorna True si la variable ingresada es un flotante.
-    """
-    if type(valor) == float:
-        return True
-    elif type(valor) == str:
-        sin_el_punto = ""
-        cantidad_de_puntos = 0
-    
-        for i in str(valor):
-            if i == ".":
-                cantidad_de_puntos += 1
-            else:
-                sin_el_punto += i
+    proposito: devuelve el dato ingresado por el usuario
 
-        return sin_el_punto.isdigit() and cantidad_de_puntos == 1
+    Parametro:
+        valor (): valor a evaluar si cumple con el tipo de dato que se indique
+        tipo_de_dato (): el tipo que se usará para evaluar el valor ingresado
+    Returns:
+        int: Devuelve el valor ingresado si es del tipo indicado.
+    """
+    if isinstance(valor, tipo_de_dato):
+        return valor
     else:
-        return False
+        return "Lo que ha ingresado no corresponde con el tipo ingresado."
 
 
-print(es_float("3.14"))
-print(es_float(3.14))
-print(es_float("texto"))
-print(es_float("12"))
-print(es_float(12))
-print(es_float(None))
-
-"""
-🔹 Enunciado 2: Validar número entero (int)
-Objetivo: Crear una función que valide si un valor puede interpretarse como un número entero.
-
-Enunciado:
-Escribí una función llamada es_entero(valor) que reciba un solo parámetro. La función debe retornar True si el valor puede convertirse a int, ya sea que venga como string ("5") o como número (5), y False en caso contrario.
-Probá tu función con valores como "5", 5, "5.0", 5.0, "cinco" y None.
-"""
-
-# def es_entero(valor):
-#     """
-#         Propósito: validar si el valor ingresado es un entero.
-#         Parametro:
-#             valor (str o número) : valor a evaluar si es un entero
-#         Return: retornara True si el valor ingresado es un entero o False en el caso contrario.
-#     """
-
-#     if valor == None:
-#         return False
-#     elif valor == True or valor == False:
-#         return False
-#     elif type(valor) == int:
-#         return True
-#     elif type(valor) == float:
-#         return False
-#     else:
-#         var = ""
-    
-#         for i in valor:
-#             var += i
-    
-#         return var.isdigit()
+# print(devolver_tipo_de_dato("1", str))
 
 
-def es_entero(valor):
-    """
-        Propósito: validar si el valor ingresado es un entero.
-        Parametro:
-            valor (str o número) : valor a evaluar si es un entero
-        Return: retornara True si el valor ingresado es un entero o False en el caso contrario.
-    """
-
-    if type(valor) == int:
-        return True
-    elif type(valor) == str:
-        var = ""
-    
-        for i in valor:
-            var += i
-    
-        return var.isdigit()
-    else:
-        return False
 
 
-# print(es_entero("5"))
-# print(es_entero(5))
-# print(es_entero("5.0"))
-# print(es_entero(5.0))
-# print(es_entero("cinco"))
-# print(es_entero(None))
-
-
-"""
-🔹 Enunciado 3: Validar si un valor es alfanumérico
-Objetivo: Crear una función que verifique si un string es estrictamente alfanumérico.
-
-Enunciado:
-Escribí una función llamada es_alfanumerico(valor) que reciba un parámetro y devuelva True si es un string compuesto únicamente por letras y/o números (sin espacios, símbolos o acentos), y False en caso contrario.
-Probá la función con valores como "Hola123", "hola mundo", "123", "!!!", "" y None.
-"""
-
-def es_alfanumerico(valor):
-    """
-        Propósito: Validar si el valor ingresado es alfanumerico.
-        Parametro:
-            valor (str) : valor a evaluar si es alfanumerico.
-        Return: retorna True en  caso de que la cadena ingresada sea estrictamente alfanumerico, en caso contrario retorna False.
-    """
-    if valor == None:
-        return False
-    else: 
-        var = str(valor).lower()
-        return not contiene_acentos(valor) and var.isalnum()
-    
-
-def contiene_acentos(valor):
-    """
-        Propósito: Indicar si el valor ingresado tiene alguna letra con acento.
-        Parametro:
-            valor (str) : valor a validar si tiene algún acento.
-        Return: retorna True si la cadena ingresada contiene alguna letra con acento, en caso contrario retorna False.
-    """
-    if valor == None or isinstance(valor, int) or isinstance(valor, float) or isinstance(valor, bool):
-        return False
-    else:
-        var = str(valor).lower()
-        return ("á" in var) or ("é" in var) or ("í" in var) or ("ó" in var) or ("ú" in var)
-
-
-# print(es_alfanumerico("Hola123"))
-# print(es_alfanumerico("hola mundo"))
-# print(es_alfanumerico("123"))
-# print(es_alfanumerico("!!!"))
-# print(es_alfanumerico(""))
-# print(es_alfanumerico(None))
-    
-# numero = 4.5
-# print(numero.is_integer()) 
-
-# numero2 = "12.5"
-# print(numero2.isdigit())
-
-# for i in numero:
-#     if i == ".":
-        # print("Es float")
-    
-# hola = str("hola")
-# print(hola)
-
-# nuevo_texto = ""
-
-# for i in "hola":
-#     if i == "h":
-#         continue
-#     nuevo_texto += i
-
-# print(nuevo_texto)
-
-# print("hola 3".isalnum())
-
-# print(" " in "hol a")
-
-# print(contiene_acentos(None))
 
 
 
