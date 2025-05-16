@@ -45,3 +45,5 @@ for i in range(len(mi_lista2)):
     total += mi_lista2[i]
 
 print(total)
+
+
