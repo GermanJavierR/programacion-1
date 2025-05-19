@@ -80,6 +80,49 @@ def es_entero(valor):
 # print(es_entero(None))
 
 
+# Validación para saber si es un número entero.
+
+def es_un_numero_entero_positivo(valor):
+    return isinstance(valor, int) >= 0
+
+
+# Validación para saber si es un número.
+
+def es_un_numero(valor):
+    return es_entero(valor) or es_float(valor) or es_un_numero_negativo(valor)
+
+
+# Validación para saber si el valor ingresado es un número negativo.
+
+def es_un_numero_negativo(valor):
+    """
+    Propósito: Indicar si el valor ingresado es un número negativo
+    Parametro:
+    Return: 
+    """
+    if (isinstance(valor, int) or isinstance(valor, float)) and valor < 0 :
+        return True
+    elif type(valor) == str:
+        partes_del_string = valor.split("-")
+        
+        return len(partes_del_string) == 2 and partes_del_string[0] == "" and es_un_numero(partes_del_string[1])
+    else:
+        return False
+
+# print(es_un_numero_negativo(4))
+# print(es_un_numero_negativo(4.4))
+# print(es_un_numero_negativo(-4))
+# print(es_un_numero_negativo(-4.5))
+# print(es_un_numero_negativo("4"))
+# print(es_un_numero_negativo("4.5"))
+# print(es_un_numero_negativo("-4"))
+# print(es_un_numero_negativo("-4.5"))
+# print(es_un_numero_negativo("hola"))
+# print(es_un_numero_negativo(None))
+
+# print("4.5".split("-"))
+# print("-4.5".split("-"))
+
 """
 🔹 Enunciado 3: Validar si un valor es alfanumérico
 Objetivo: Crear una función que verifique si un string es estrictamente alfanumérico.
@@ -123,3 +166,85 @@ def contiene_acentos(valor):
 # print(es_alfanumerico("!!!"))
 # print(es_alfanumerico(""))
 # print(es_alfanumerico(None))
+
+# print("-4".split("-"))
+
+
+# -------------------------------------------------------------------------------------------------------------------- #
+
+# Lista
+
+def todos_los_elementos_de_la_lista_son(lista, tipo):
+    if type(lista) == list:
+        if lista == []:
+            return False
+        else:
+            todos_son_del_mismo_tipo = True
+            for i in range(len(lista)):
+                todos_son_del_mismo_tipo = todos_son_del_mismo_tipo and type(lista[i]) == tipo
+            return todos_son_del_mismo_tipo
+    else:
+        return "No ha ingresado un lista."
+    
+
+# print(todos_los_elementos_de_la_lista_son(1, int))
+# print(todos_los_elementos_de_la_lista_son([1,2,3], int))
+# print(todos_los_elementos_de_la_lista_son([1,2,"hola"], int))
+# print(todos_los_elementos_de_la_lista_son([True, 1], int))
+# print(todos_los_elementos_de_la_lista_son("1", int))
+# print(todos_los_elementos_de_la_lista_son(["","2","hola"], str))
+# print(todos_los_elementos_de_la_lista_son(None, None))
+# print(todos_los_elementos_de_la_lista_son([1,2,"hola"], None))
+# print(todos_los_elementos_de_la_lista_son([1,2], None))
+
+
+def todos_los_str_son_alpha(lista):
+    """
+    Propósito: Indicar si todos los str en la lista son alpha.
+    Parametro:
+        lista (list): lista de la que se quiere saber si todos los str son alpha.
+    Retunr: Retorna True si todos los elementos son alpha, en caso contrario retorna False.
+    """
+    if todos_los_elementos_de_la_lista_son(lista, str):
+        todos_son_alpha = True
+        for i in lista:
+            todos_son_alpha = todos_son_alpha and i.isalpha()
+        return todos_son_alpha
+    else:
+        return "No ha ingresado una lista de strings."
+    
+
+# print(todos_los_str_son_alpha(["hola", "Germán","!"]))
+
+
+def esta_en_la_lista(elemento, lista):
+    """
+    Propósito: indica si el elemento ingresado se encuentra en la lista dada.
+    Parametros:
+        elemento: elemento que se va a buscar en la lista.
+        lista: lista en la que se buscará el elemento dado.
+    Return: en caso de que el elemento este en la lista retorna True, en caso contrario retorna False.
+    """
+    for i in lista:
+        if i == elemento:
+            return True
+    
+    return False
+
+
+def lista_sin_repeticiones(lista):
+    """
+    Propósito: armar una nueva lista basada en la lista dada sin repetidos.
+    Parametro:
+        lista (list): lista en la cual se basará la nueva lista.
+    Return: retorna una lista.
+    """
+    if isinstance(lista, list):
+        nueva_lista = []
+        for i in lista:
+            if not esta_en_la_lista(i, nueva_lista):
+                nueva_lista += [i]
+        return nueva_lista
+    else:
+        return "El elemento ingresado no es una lista."
+    
