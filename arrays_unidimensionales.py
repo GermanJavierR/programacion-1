@@ -302,6 +302,9 @@ def union_de_dos_arrays(lista1, lista2):
 
 # Union sin elementos repetidos repeticiones.
 
+print(union_de_dos_arrays(lista1, lista2))
+print(union_de_dos_arrays(lista3, lista2))
+
 # 11) Crear una función que reciba como parámetros dos arrays. La función deberá mostrar la diferencia de los dos arrays.
 
 
