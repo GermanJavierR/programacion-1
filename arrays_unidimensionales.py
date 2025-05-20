@@ -282,7 +282,6 @@ print(interseccion_entre_dos_lista(lista3, lista2))
 
 
 
-
 # 10) Crear una función que reciba como parámetros dos arrays. La función deberá mostrar la unión de los dos arrays.
 
 def union_de_dos_arrays(lista1, lista2):
@@ -307,4 +306,38 @@ print(union_de_dos_arrays(lista3, lista2))
 
 # 11) Crear una función que reciba como parámetros dos arrays. La función deberá mostrar la diferencia de los dos arrays.
 
+def diferencias_entre(lista1, lista2):
+    """
+    Propósito: mostrar la diferencias que tienen las dos arrays dadas.
+    Parametros:
+        lista1 (list): lista a ver que elementos tiene diferentes a la segunda lista.
+        lista2 (list): segunda lista a ver que elementos tiene diferentes a la primera lista.
+    Return: retorna la diferente entre las dos arrays.
+    """
+    if isinstance(lista1, list) and isinstance(lista2, list):
+        elementos_unicos_de_l1 = elementos_de_sin(lista1, lista2) 
+        elementos_unicos_de_l2 = elementos_de_sin(lista2, lista1)
+        return union_de_dos_arrays(elementos_unicos_de_l1, elementos_unicos_de_l2)
+    else:
+        return "Algunos de los parametros ingresados no es una lista."
+    
+def elementos_de_sin(lista1, lista2):
+    """
+    Propósito: indicar los elementos que pertenecen a la lista1 sin los de la lista2.
+    Parametros:
+        lista1 (list): lista de la que se quiere sacar sus elementos exclusivos.
+        lista2 (list): lista que se restarán los elementos que comparte con la primera lista. 
+    Return: retorna una lista con los elementos únicos de la primera lista.
+    """
+    if isinstance(lista1, list) and isinstance(lista2, list):
+        nueva_lista = []
+        for i in lista1:
+            if not esta_en_la_lista(i, lista2):
+                nueva_lista += [i]
+        return nueva_lista
+    else:
+        return "Algunos de los elementos ingresado no es una lista."
 
+
+print(diferencias_entre(lista1, lista2))
+print(diferencias_entre(lista2, lista3))
