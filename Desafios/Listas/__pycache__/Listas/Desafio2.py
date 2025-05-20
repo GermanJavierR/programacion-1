@@ -37,7 +37,7 @@ def productos_en_comun_entre(compras_usuario1, compras_usuario2):
         return "Algunos de los datos ingresados no es una lista."
 
 
-# print(productos_en_comun_entre(productos_del_usuario_1, productos_del_usuario_2))
+print(productos_en_comun_entre(productos_del_usuario_1, productos_del_usuario_2))
 
 
 # 2)
@@ -72,6 +72,7 @@ def productos_totales_comprados_entre(compras_usuario1, compras_usuario2):
 
 # Con elementos repetidos.
 
+print(productos_totales_comprados_entre(productos_del_usuario_1, productos_del_usuario_2))
 
 # 4)
 
