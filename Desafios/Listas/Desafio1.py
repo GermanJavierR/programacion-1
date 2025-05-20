@@ -24,7 +24,7 @@ Las funciones de entrada de datos deben importarse desde el módulo Input.
  ✅ Desarrollar y probar primero cada función individualmente antes de organizarlas en módulos.
 """
 
-from Input import 
+
 
 def menu_de_opciones():
     """
