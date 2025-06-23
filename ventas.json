@@ -1,0 +1,26 @@
+[
+    {
+        "id del cliente": 1,
+        "fecha": "25-06-2025",
+        "lista de compras": [
+            [
+                "Capitan del espacio",
+                2
+            ]
+        ]
+    },
+    {
+        "id del cliente": 2,
+        "fecha": "26-06-2025",
+        "lista de compras": [
+            [
+                "Capitan del espacio",
+                5
+            ],
+            [
+                "Capitan del espacio",
+                2
+            ]
+        ]
+    }
+]
